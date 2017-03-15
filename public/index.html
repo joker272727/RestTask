@@ -1,0 +1,26 @@
+<!doctype html>
+<html ng-app="myapp">
+	<head>
+		<title>Notes application</title>
+	</head>
+
+	<body ng-controller="UsersController">
+		<script>
+			function update_href(id,value){
+			document.getElementById(id).href='http://localhost:8080/search?email='+value;
+			}
+
+			function update_delete(id,value){
+				document.getElementById(id).href='http://localhost:8080/delete?id='+value;
+				}
+		</script>
+	
+		Search user <br>
+		E-mail: <input name="textfield" ng-model="email" onChange="update_href('link', this.value );"> <a href="http://localhost:8080/users" id="link" >search</a>
+		
+		<br>Delete user <br>
+		id: <input name="id" onChange="update_delete('link2', this.value );"> <a href="http://localhost:8080/delete" id="link2" >delete</a>
+		<br>To add new cortege go to http://localhost:8080/add and add name, surname, birth_date, email, password parametres throw get request. 
+		
+	</body>
+</html>
